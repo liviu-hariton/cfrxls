@@ -1,0 +1,6 @@
+<IfModule mod_autoindex.c>
+    Options -Indexes
+    Options -MultiViews
+	Options +FollowSymlinks
+	Options -ExecCGI
+</IfModule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="play.liviuhariton.com" createEmptyFolders="true" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*.pdf;*.txt;*.doc;*.docx;*.log;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.psd;*.tiff;*.svg;*.sql;*.csv;*.xlx;*.xlxs;*.zip;*.ttf;*.otf;*.map;*.dat;*.json;*.woff;*.woff2;*.scss" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="play.liviuhariton.com">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/.well-known/pki-validation" />
+            <excludedPath path="/.well-known" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.well-known/pki-validation" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.well-known" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+  </component>
+</project>

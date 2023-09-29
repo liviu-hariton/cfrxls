@@ -1,0 +1,83 @@
+<!-- BEGIN uploadsuccess -->
+<div class="alert alert-success text-center mb-5">
+    <p>Fisierele selectate au fost incarcate cu succes!</p>
+</div>
+<!-- END uploadsuccess -->
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Incarcare fisiere sursa</h5>
+
+                <div class="card-text">
+                    <p>Incarca fisierele sursa din care se va genera raportul</p>
+
+                    <form method="post" name="f-upload" id="f-upload" enctype="multipart/form-data">
+                        <!-- BEGIN load_ms_vechi -->
+                        <div class="mb-3">
+                            <label for="ms_vechi" class="form-label text-danger">MS Vechi</label>
+                            <input class="form-control" type="file" id="ms_vechi" name="ms_vechi">
+                        </div>
+                        <!-- END load_ms_vechi -->
+
+                        <!-- BEGIN ms_vechi -->
+
+                        <!-- END ms_vechi -->
+
+                        <!-- BEGIN load_ms_nou -->
+                        <div class="mb-3">
+                            <label for="ms_nou" class="form-label text-danger">MS Nou</label>
+                            <input class="form-control" type="file" id="ms_nou" name="ms_nou">
+                        </div>
+                        <!-- END load_ms_nou -->
+
+                        <!-- BEGIN ms_nou -->
+
+                        <!-- END ms_nou -->
+
+                        <!-- BEGIN load_cfr -->
+                        <div class="mb-3">
+                            <label for="cfr" class="form-label text-danger">CFR</label>
+                            <input class="form-control" type="file" id="cfr" name="cfr">
+                        </div>
+                        <!-- END load_cfr -->
+
+                        <!-- BEGIN cfr -->
+
+                        <!-- END cfr -->
+
+                        <!-- BEGIN load_inchise -->
+                        <div class="mb-3">
+                            <label for="inchise" class="form-label text-danger">Inchise / desfiintate</label>
+                            <input class="form-control" type="file" id="inchise" name="inchise">
+                        </div>
+                        <!-- END load_inchise -->
+
+                        <!-- BEGIN inchise -->
+
+                        <!-- END inchise -->
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success" name="go-upload" id="go-upload">Incarca</button>
+
+                            <!-- BEGIN reset -->
+                            <a href="{_URL}?resetupload" class="btn btn-secondary float-end">Reseteaza</a>
+                            <!-- END reset -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Generare raport</h5>
+
+                <p class="card-text"><a href="{_URL}?genreport" class="btn btn-success">Genereaza</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
