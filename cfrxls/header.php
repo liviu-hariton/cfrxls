@@ -14,6 +14,10 @@ $view->set_filenames([
     'header' => 'header.html'
 ]);
 
+if(isset($_GET['type'])) {
+    $view->assign_block_vars("back", []);
+}
+
 $view->assign_vars([
     '_APP_NAME' => _APP_NAME,
     '_URL' => _SITE_URL,

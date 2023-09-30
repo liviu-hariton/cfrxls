@@ -4,6 +4,12 @@
 </div>
 <!-- END uploadsuccess -->
 
+<!-- BEGIN resetsuccess -->
+<div class="alert alert-success text-center mb-5">
+    <p>Sesiunea a fost resetata cu succes!</p>
+</div>
+<!-- END resetsuccess -->
+
 <div class="row">
     <div class="col-6">
         <div class="card">
@@ -16,50 +22,68 @@
                     <form method="post" name="f-upload" id="f-upload" enctype="multipart/form-data">
                         <!-- BEGIN load_ms_vechi -->
                         <div class="mb-3">
-                            <label for="ms_vechi" class="form-label text-danger">MS Vechi</label>
+                            <label for="ms_vechi" class="form-label text-dark fw-bolder">MS Vechi</label>
                             <input class="form-control" type="file" id="ms_vechi" name="ms_vechi">
                         </div>
                         <!-- END load_ms_vechi -->
 
                         <!-- BEGIN ms_vechi -->
-
+                        <p>
+                            <span class="badge rounded-pill text-bg-primary fs-16">MS Vechi</span>
+                            <strong>{ms_vechi.COUNT} randuri</strong>
+                            <a href="{_URL}show/ms_vechi" class="text-primary">vezi datele <i class="fa fa-arrow-circle-right"></i></a>
+                        </p>
                         <!-- END ms_vechi -->
 
                         <!-- BEGIN load_ms_nou -->
                         <div class="mb-3">
-                            <label for="ms_nou" class="form-label text-danger">MS Nou</label>
+                            <label for="ms_nou" class="form-label text-dark fw-bolder">MS Nou</label>
                             <input class="form-control" type="file" id="ms_nou" name="ms_nou">
                         </div>
                         <!-- END load_ms_nou -->
 
                         <!-- BEGIN ms_nou -->
-
+                        <p>
+                            <span class="badge rounded-pill text-bg-primary fs-16">MS Nou</span>
+                            <strong>{ms_nou.COUNT} randuri</strong>
+                            <a href="{_URL}show/ms_nou" class="text-primary">vezi datele <i class="fa fa-arrow-circle-right"></i></a>
+                        </p>
                         <!-- END ms_nou -->
 
                         <!-- BEGIN load_cfr -->
                         <div class="mb-3">
-                            <label for="cfr" class="form-label text-danger">CFR</label>
+                            <label for="cfr" class="form-label text-dark fw-bolder">CFR</label>
                             <input class="form-control" type="file" id="cfr" name="cfr">
                         </div>
                         <!-- END load_cfr -->
 
                         <!-- BEGIN cfr -->
-
+                        <p>
+                            <span class="badge rounded-pill text-bg-primary fs-16">CFR</span>
+                            <strong>{cfr.COUNT} randuri</strong>
+                            <a href="{_URL}show/cfr" class="text-primary">vezi datele <i class="fa fa-arrow-circle-right"></i></a>
+                        </p>
                         <!-- END cfr -->
 
                         <!-- BEGIN load_inchise -->
                         <div class="mb-3">
-                            <label for="inchise" class="form-label text-danger">Inchise / desfiintate</label>
+                            <label for="inchise" class="form-label text-dark fw-bolder">Inchise / desfiintate</label>
                             <input class="form-control" type="file" id="inchise" name="inchise">
                         </div>
                         <!-- END load_inchise -->
 
                         <!-- BEGIN inchise -->
-
+                        <p>
+                            <span class="badge rounded-pill text-bg-primary fs-16">Inchise</span>
+                            <strong>{inchise.COUNT} randuri</strong>
+                            <a href="{_URL}show/inchise" class="text-primary">vezi datele <i class="fa fa-arrow-circle-right"></i></a>
+                        </p>
                         <!-- END inchise -->
 
                         <div class="col-12">
+                            <!-- BEGIN load -->
                             <button type="submit" class="btn btn-success" name="go-upload" id="go-upload">Incarca</button>
+                            <!-- END load -->
 
                             <!-- BEGIN reset -->
                             <a href="{_URL}?resetupload" class="btn btn-secondary float-end">Reseteaza</a>
@@ -75,7 +99,17 @@
             <div class="card-body">
                 <h5 class="card-title">Generare raport</h5>
 
-                <p class="card-text"><a href="{_URL}?genreport" class="btn btn-success">Genereaza</a></p>
+                <div class="card-text">
+                    <!-- BEGIN generate -->
+                    <a href="{_URL}?genreport" class="btn btn-success">Genereaza raportul final</a>
+                    <!-- END generate -->
+
+                    <!-- BEGIN no_generate -->
+                    <div class="alert alert-warning">
+                        <i class="fa fa-exclamation-triangle"></i> Incarca toate fisierele sursa din care se va genera raportul
+                    </div>
+                    <!-- END no_generate -->
+                </div>
             </div>
         </div>
     </div>

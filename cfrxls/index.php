@@ -10,6 +10,12 @@ if(isset($_GET['uploadsuccess'])) {
     $view->assign_block_vars("uploadsuccess", []);
 }
 
+if(isset($_GET['resetsuccess'])) {
+    $view->assign_block_vars("resetsuccess", []);
+}
+
+$loaded_check = [];
+
 if(!file_exists(_UPLOAD_ROOT._SID)) {
     $view->assign_block_vars("load_ms_vechi", []);
     $view->assign_block_vars("load_ms_nou", []);
@@ -19,28 +25,51 @@ if(!file_exists(_UPLOAD_ROOT._SID)) {
     if(!file_exists(_UPLOAD_ROOT._SID.'/ms_vechi.xls')) {
         $view->assign_block_vars("load_ms_vechi", []);
     } else {
-        $view->assign_block_vars("ms_vechi", []);
+        $view->assign_block_vars("ms_vechi", [
+            'COUNT' => $app->countEntries('ms_vechi')
+        ]);
+
+        $loaded_check[] = 'ms_vechi';
     }
 
     if(!file_exists(_UPLOAD_ROOT._SID.'/ms_nou.xls')) {
         $view->assign_block_vars("load_ms_nou", []);
     } else {
-        $view->assign_block_vars("ms_nou", []);
+        $view->assign_block_vars("ms_nou", [
+            'COUNT' => $app->countEntries('ms_nou')
+        ]);
+
+        $loaded_check[] = 'ms_nou';
     }
 
     if(!file_exists(_UPLOAD_ROOT._SID.'/cfr.xls')) {
         $view->assign_block_vars("load_cfr", []);
     } else {
-        $view->assign_block_vars("cfr", []);
+        $view->assign_block_vars("cfr", [
+            'COUNT' => $app->countEntries('cfr')
+        ]);
+
+        $loaded_check[] = 'cfr';
     }
 
     if(!file_exists(_UPLOAD_ROOT._SID.'/inchise.xls')) {
         $view->assign_block_vars("load_inchise", []);
     } else {
-        $view->assign_block_vars("inchise", []);
+        $view->assign_block_vars("inchise", [
+            'COUNT' => $app->countEntries('inchise')
+        ]);
+
+        $loaded_check[] = 'inchise';
     }
 
     $view->assign_block_vars("reset", []);
+}
+
+if(count($loaded_check) == 4) {
+    $view->assign_block_vars("generate", []);
+} else {
+    $view->assign_block_vars("load", []);
+    $view->assign_block_vars("no_generate", []);
 }
 
 $view->assign_vars([

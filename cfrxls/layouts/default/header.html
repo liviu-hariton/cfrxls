@@ -91,13 +91,22 @@
     </style>
 
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">var site_url = '{_URL}';var site_tpl = '{_TPL}';</script>
+    <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
 </head>
 <body>
 
 <div class="container-fluid">
     <header class="d-flex align-items-center pb-3 mb-5 mt-3 border-bottom">
-        <a href="{_URL}" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+        <a href="{_URL}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <i class="fas fa-file-excel fs-23" ></i>
             <span class="fs-4 ms-1">CFR Xls</span>
         </a>
+
+        <!-- BEGIN back -->
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{_URL}" class="btn btn-bd-primary float-right"><i class="fa fa-reply"></i> Inapoi</a></li>
+        </ul>
+        <!-- END back -->
     </header>
