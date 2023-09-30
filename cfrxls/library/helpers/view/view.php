@@ -1,22 +1,4 @@
 <?php
-/**
- * Minifarm HR platform
- * 
- * Author: Liviu Hariton <liviu@minifarm.ro>
- * 
- * Find us on:
- *      - Corporate - @link https://www.minifarm.ro
- *      - eStore - @link https://www.minifarmonline.ro
- *      - Email: online@minifarm.ro
- *      - Linkedin - @link https://www.linkedin.com/company/farmacia.minifarm/
- *      - Facebook - @link https://www.facebook.com/FarmaciaMinifarm/
- * 
- * (c) 2018 MINI FARM SRL
- * 
- * All rights reserved. Changing this code without the author's and / or MINI FARM SRL's consent is strictly prohibited.
- * 
- * @package MinifarmHR
- */
 
 class View {
 	var $classname = "View";

@@ -1,24 +1,4 @@
 <?php
-/**
- * SyncShop e-commerce platform
- *
- * Author: SYNCDEV SRL-D <salut@syncdev.eu>
- *
- * Find us on:
- *      - Our official Website - @link http://www.syncshop.eu
- *      - Email: salut@syncshop.eu
- *      - Facebook - @link https://www.facebook.com/syncshop.eu
- *      - Twitter - @link https://twitter.com/syncdev_eu
- *      - YouTube - @link https://www.youtube.com/user/syncdevonline
- *
- * (c) 2014 SYNCDEV SRL-D <salut@syncdev.eu> http://www.syncdev.eu
- * Phone: 075SYNCDEV / 0340401183
- *
- * All rights reserved. Changing this code without the author's
- * and / or SYNCDEV SRL-D's consent is strictly prohibited.
- *
- * @package SyncShop
- */
 
 class Db {
     public $db_connect_id;
