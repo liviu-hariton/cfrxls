@@ -151,7 +151,7 @@ class Defs {
 
     public static array $namecheck_keys = ['denumire', 'denumire_societate', 'persoana_juridica'];
 
-    public static array $src_fields = ['persoana_juridica', 'adresa_sediu_social', 'localitate_sediu_social', 'denumire', 'localitate', 'denumire_societate', 'localitate_sediu_social', 'adresa_sediu_social', 'judet_sediu_social', 'judet_pl', 'adresa', 'localitate_pl', 'street_no'];
+    public static array $src_fields = ['persoana_juridica', 'adresa_sediu_social', 'localitate_sediu_social', 'denumire', 'localitate', 'denumire_societate', 'localitate_sediu_social', 'adresa_sediu_social', 'judet_sediu_social', 'judet_pl', 'adresa', 'localitate_pl', 'street_no', 'adresa_pl', 'in_structura'];
 
     public static array $address_keys = ['adresa_pl', 'adresa_farmacie', 'adresa'];
 

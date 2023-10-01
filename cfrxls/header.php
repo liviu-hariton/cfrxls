@@ -10,6 +10,10 @@ if(isset($_GET['resetupload'])) {
     $app->reset();
 }
 
+if(isset($_GET['generatexls'])) {
+    $app->generateXls();
+}
+
 $view->set_filenames([
     'header' => 'header.html'
 ]);
