@@ -15,7 +15,10 @@ foreach(Defs::$table_head[$_GET['type']] as $column_name=>$column_field) {
 $rows = $app->getEntries($_GET['type']);
 
 foreach($rows as $row) {
-    $view->assign_block_vars("row", []);
+    $view->assign_block_vars("row", [
+        'ID' => $row['idEntry'],
+        'TABLE' => $_GET['type']
+    ]);
 
     $src_data = [];
 
@@ -26,6 +29,12 @@ foreach($rows as $row) {
 
         if(in_array($column_field, Defs::$src_fields)) {
             $src_data[] = $row[$column_field];
+        }
+
+        if(in_array($column_field, Defs::$street_fields) && $_GET['type'] != 'inchise') {
+            $view->assign_block_vars("row.value.street_no", [
+                'STREET_NO' => $row['street_no']
+            ]);
         }
     }
 

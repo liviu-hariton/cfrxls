@@ -1,0 +1,55 @@
+<h3 class="mb-3"><i class="fas fa-chevron-right"></i> Raport MS Nou</h3>
+
+<input data-list=".locations_list" class="form-control form-control-lg" type="text" id="search_in_page" name="search_in_page" placeholder="Cauta in pagina dupa denumire sau adresa">
+
+<div class="table-responsive mt-5">
+    <table class="table table-sm table-hover table-bordered">
+        <thead>
+            <tr>
+                <!-- BEGIN column -->
+                <th scope="col">{column.COLUMN}</th>
+                <!-- END column -->
+            </tr>
+        </thead>
+        <tbody class="locations_list">
+            <!-- BEGIN row -->
+            <tr data-values="{row.DENUMIRE} {row.DENUMIRE_PL} {row.ADRESA_PL} {row.LOC_PL} {row.STREET_NO}" class="{row.CSS}">
+                <td>{row.DENUMIRE}</td>
+                <td>{row.CUI}</td>
+                <td>{row.LOC_SS}</td>
+                <td>{row.ADRESA_SS}</td>
+                <td>{row.JUDT_SS}</td>
+                <td>{row.DENUMIRE_PL}</td>
+                <td>{row.TIP}</td>
+                <td>{row.LOC_PL}</td>
+                <td>{row.URBAN_RURAL}</td>
+                <td>
+                    {row.ADRESA_PL}
+
+                    <br /><span class="badge rounded-pill text-bg-danger">{row.STREET_NO}</span>
+                </td>
+                <td>{row.JUDET_PL}</td>
+                <td>{row.NR_AUT}</td>
+                <td>{row.DATA_AUT}</td>
+                <td>{row.RECEPTURA}</td>
+                <td>{row.MENTIUNI}</td>
+                <td>{row.FARM_SEF}</td>
+                <td>{row.OBSERVATII}</td>
+                <td>{row.TEL_PL}</td>
+                <td>{row.EMAIL_PL}</td>
+                <td>{row.FOND_COMERT}</td>
+                <td>{row.MS}</td>
+                <td>{row.CFR}</td>
+            </tr>
+            <!-- END row -->
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            $('#search_in_page').hideseek({
+                attribute: 'data-values'
+            });
+        });
+    </script>
+</div>

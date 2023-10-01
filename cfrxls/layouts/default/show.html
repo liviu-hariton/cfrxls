@@ -19,7 +19,36 @@
                 <!-- END src_data -->
                 ">
                 <!-- BEGIN value -->
-                <td>{row.value.VALUE}</td>
+                <td>
+                    {row.value.VALUE}
+
+                    <!-- BEGIN street_no -->
+                    <br /><a href="javscript:void(0)" data-bs-toggle="modal" data-bs-target="#edit-street-no-{row.ID}" data-toggle="modal" class="badge rounded-pill text-bg-danger" id="street-no-{row.ID}">{row.value.street_no.STREET_NO}</a>
+
+                    <div class="modal" tabindex="-1" id="edit-street-no-{row.ID}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Cheie verificare &quot;strada numar&quot;</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Adresa: {row.value.VALUE}</p>
+
+                                    <div class="mt-3">
+                                        <label for="street-no-{row.ID}-value" class="form-label text-dark fw-bolder">&quot;strada numar&quot;</label>
+                                        <input class="form-control" type="text" id="street-no-{row.ID}-value" name="street-no-{row.ID}-value" value="{row.value.street_no.STREET} {row.value.street_no.STREET_NO}">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+                                    <button type="button" class="btn btn-success" onclick="saveStreetNo('{row.ID}', '{row.TABLE}')">Salveaza</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END street_no -->
+                </td>
                 <!-- END value -->
             </tr>
             <!-- END row -->

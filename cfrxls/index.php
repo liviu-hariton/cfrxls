@@ -18,7 +18,7 @@ $loaded_check = [];
 
 if(!file_exists(_UPLOAD_ROOT._SID)) {
     $view->assign_block_vars("load_ms_vechi", []);
-    $view->assign_block_vars("load_ms_nou", []);
+    /*$view->assign_block_vars("load_ms_nou", []);*/
     $view->assign_block_vars("load_cfr", []);
     $view->assign_block_vars("load_inchise", []);
 } else {
@@ -32,7 +32,7 @@ if(!file_exists(_UPLOAD_ROOT._SID)) {
         $loaded_check[] = 'ms_vechi';
     }
 
-    if(!file_exists(_UPLOAD_ROOT._SID.'/ms_nou.xls')) {
+    /*if(!file_exists(_UPLOAD_ROOT._SID.'/ms_nou.xls')) {
         $view->assign_block_vars("load_ms_nou", []);
     } else {
         $view->assign_block_vars("ms_nou", [
@@ -40,7 +40,7 @@ if(!file_exists(_UPLOAD_ROOT._SID)) {
         ]);
 
         $loaded_check[] = 'ms_nou';
-    }
+    }*/
 
     if(!file_exists(_UPLOAD_ROOT._SID.'/cfr.xls')) {
         $view->assign_block_vars("load_cfr", []);
@@ -65,7 +65,7 @@ if(!file_exists(_UPLOAD_ROOT._SID)) {
     $view->assign_block_vars("reset", []);
 }
 
-if(count($loaded_check) == 4) {
+if(count($loaded_check) == 3) {
     $view->assign_block_vars("generate", []);
 } else {
     $view->assign_block_vars("load", []);

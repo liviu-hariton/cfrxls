@@ -353,3 +353,4 @@ ModPagespeed unplugged
 # Main app rewriting rules
 
 RewriteRule ^show/(ms_vechi|ms_nou|cfr|inchise) show.php?type=$1
+RewriteRule ^msnou/ msnou.php

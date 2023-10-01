@@ -32,7 +32,7 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
         $this->etc->redirect(_SITE_URL.'?uploadsuccess');
     }
 
-    public function setNameCheck($input): string
+    private function setNameCheck($input): string
     {
         $input = strtolower($input);
 
@@ -49,6 +49,39 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
         $input = trim($input);
 
         return $input;
+    }
+
+    private function parseStreet($input): array
+    {
+        $input = strtolower($input);
+
+        $src = [
+            'str.', 'str', 'nr.', 'nr', ','
+        ];
+
+        $rpl = [
+            '', '', '', '', ' '
+        ];
+
+        $input = str_replace($src, $rpl, $input);
+
+        $input = trim($input);
+
+        return explode(" ", $input);
+    }
+
+    private function setStreetName($input)
+    {
+        $parts = $this->parseStreet($input);
+
+        return $parts[0];
+    }
+
+    private function setStreetNo($input)
+    {
+        $parts = $this->parseStreet($input);
+
+        return $parts[1];
     }
 
     /**
@@ -78,15 +111,28 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
                 $db_data['session'] = _SID;
 
-                foreach(Defs::$namecheck_keys as $key) {
-                    if(isset($db_data[$key])) {
-                        $name_check = $this->setNameCheck($db_data[$key]);
+                foreach(Defs::$namecheck_keys as $name_key) {
+                    if(isset($db_data[$name_key])) {
+                        $name_check = $this->setNameCheck($db_data[$name_key]);
                         break;
                     }
                 }
 
                 $db_data['name_check'] = $name_check;
                 $db_data['name_hash'] = md5($name_check);
+
+                if($type != 'inchise') {
+                    foreach(Defs::$address_keys as $address_key) {
+                        if(isset($db_data[$address_key])) {
+                            $street_name = $this->setStreetName($db_data[$address_key]);
+                            $street_no = $this->setStreetNo($db_data[$address_key]);
+                            break;
+                        }
+                    }
+
+                    $db_data['street_no'] = $street_name.' '.$street_no;
+                }
+
             }
 
             $this->db->sqlInsert(
@@ -154,5 +200,61 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
         $input = str_replace("_", " ", $input);
 
         return ucwords(strtolower($input));
+    }
+
+    public function updateStreetNo($id, $value, $table): array|string|null
+    {
+        $new_value = trim(strtolower($value));
+
+        $new_value = preg_replace('/\s+/', ' ', $new_value);
+
+        $data = [
+            'street_no' => $new_value
+        ];
+
+        $this->db->sqlUpdate(
+            _MYSQL_PREFIX.$table, $data, [], "`idEntry` = ".$this->db->sqlCleanInput($id).""
+        );
+
+        return $new_value;
+    }
+
+    public function checkMsVchi($data): false|array|null
+    {
+        $data = $this->db->sqlFetchAssoc(
+            $this->db->sqlQuery(
+                "select * from "._MYSQL_PREFIX."ms_vechi 
+                where 
+                    `street_no` like '%".$this->db->sqlCleanInput($data['street_no'])."%'"
+            )
+        );
+
+        return $data;
+    }
+
+    public function checkCFR($data): false|array|null
+    {
+        $data = $this->db->sqlFetchAssoc(
+            $this->db->sqlQuery(
+                "select * from "._MYSQL_PREFIX."cfr 
+                where 
+                    `street_no` like '%".$this->db->sqlCleanInput($data['street_no'])."%'"
+            )
+        );
+
+        return $data;
+    }
+
+    public function checkClosed($data): false|array|null
+    {
+        $data = $this->db->sqlFetchAssoc(
+            $this->db->sqlQuery(
+                "select * from "._MYSQL_PREFIX."inchise 
+                where 
+                    `name_check` like '%".$this->db->sqlCleanInput($data['name_check'])."%'"
+            )
+        );
+
+        return $data;
     }
 }

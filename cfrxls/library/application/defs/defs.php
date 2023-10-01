@@ -29,7 +29,7 @@ class Defs {
             'Localitate Sediu Social' => 'localitate_sediu_social',
             'Adresa Sediu Social' => 'adresa_sediu_social',
             'Judet sediu social' => 'judet_sediu_social',
-            '"Denumire PL unitate farmaceutica"' => 'denumire_pl_unitate_farmaceutica',
+            'Denumire PL unitate farmaceutica' => 'denumire_pl_unitate_farmaceutica',
             'Tip UNITATE' => 'tip_unitate',
             'Localitate unit farm / PL' => 'localitate_pl',
             'Urban/Rural' => 'urban_rural',
@@ -151,5 +151,9 @@ class Defs {
 
     public static array $namecheck_keys = ['denumire', 'denumire_societate', 'persoana_juridica'];
 
-    public static array $src_fields = ['persoana_juridica', 'adresa_sediu_social', 'localitate_sediu_social', 'denumire', 'localitate', 'denumire_societate', 'localitate_sediu_social', 'adresa_sediu_social', 'judet_sediu_social', 'judet_pl', 'adresa'];
+    public static array $src_fields = ['persoana_juridica', 'adresa_sediu_social', 'localitate_sediu_social', 'denumire', 'localitate', 'denumire_societate', 'localitate_sediu_social', 'adresa_sediu_social', 'judet_sediu_social', 'judet_pl', 'adresa', 'localitate_pl', 'street_no'];
+
+    public static array $address_keys = ['adresa_pl', 'adresa_farmacie', 'adresa'];
+
+    public static array $street_fields = ['adresa_pl', 'adresa_farmacie', 'adresa'];
 }
